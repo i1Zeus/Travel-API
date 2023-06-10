@@ -394,10 +394,6 @@
 </head>
 
 <body>
-  <div bg="blue" class="text-xl">
-    hello
-  </div>
-  <div class="i-logos-vue text-3xl" />
   <div
     class="items-top relative flex min-h-screen justify-center bg-gray-100 py-4 dark:bg-gray-900 sm:items-center sm:pt-0">
     @if (Route::has('login'))
