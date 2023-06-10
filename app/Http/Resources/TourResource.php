@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class TravelResource extends JsonResource
+class TourResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,12 +15,12 @@ class TravelResource extends JsonResource
     public function toArray($request)
     {
         return [
-                'id' => $this->id,
-                'name' => $this->name,
-                'slug' => $this->slug,
-                'description' => $this->description,
-                'number_of_days' => $this->number_of_days,
-                'number_of_night' => $this->number_of_night,
+            'id' => $this->id,
+            'travel_id' => $this->travel_id,
+            'name' => $this->name,
+            'starting_date' => $this->starting_date,
+            'ending_date' => $this->ending_date,
+            'price_in_cents' => $this->price_in_cents,
         ];
     }
 }
