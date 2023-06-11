@@ -17,13 +17,4 @@ class TravelController extends Controller
         return TravelResource::collection($travels);
     }
 
-
-    //* get tours by travel slug
-    public function getToursByTravelSlug($slug)
-    {
-        $travel = Travel::where('slug', $slug)->firstOrFail();
-        $tours = $travel->tours()->paginate();
-
-        return TourResource::collection($tours);
-    }
 }
