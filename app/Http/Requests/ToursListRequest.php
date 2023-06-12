@@ -32,6 +32,10 @@ class ToursListRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'priceFrom' => "The 'priceFrom' accepts only numeric values.",
+            'priceTo' => "The 'priceTo' accepts only numeric values.",
+            'dateFrom' => "The 'dateFrom' accepts only date values.",
+            'dateTo' => "The 'dateTo' accepts only date values.",
             'sortBy' => "The 'sortby' accepts only 'price'.",
             'sortOrder' => "The sort order accepts only 'asc' and 'desc'.",
         ];
