@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\Tour;
 use App\Models\Travel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ToursListTest extends TestCase
@@ -217,7 +216,7 @@ class ToursListTest extends TestCase
         $response = $this->getJson($endpoint . "dateFrom=abcde");
         $response->assertStatus(422);
 
-        $response = $this->getJson($endpoint . "sortBy=abcd" );
+        $response = $this->getJson($endpoint . "sortBy=abcd");
         $response->assertStatus(422);
 
         $response = $this->getJson($endpoint . "sortBy=price&sortOrder=abcd");
