@@ -216,5 +216,11 @@ class ToursListTest extends TestCase
 
         $response = $this->getJson($endpoint . "dateFrom=abcde");
         $response->assertStatus(422);
+
+        $response = $this->getJson($endpoint . "sortBy=abcd" );
+        $response->assertStatus(422);
+
+        $response = $this->getJson($endpoint . "sortBy=price&sortOrder=abcd");
+        $response->assertStatus(422);
     }
 }
