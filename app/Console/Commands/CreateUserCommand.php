@@ -39,8 +39,6 @@ class CreateUserCommand extends Command
 
         $roleName = $this->choice('Role of new user?', ['admin', 'editor'], 1);
 
-        // $user['role_id'] = Role::where('name', $roleName)->first()->id;
-
         $role = Role::where('name', $roleName)->first();
         if (!$role) {
             $this->error('Role ' . $roleName . ' does not exist');
