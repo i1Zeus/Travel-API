@@ -46,10 +46,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'string',
     ];
-    // public function setPasswordAttribute($value)
-    // {
-    //     $this->attributes['password'] = Hash::make($value);
-    // }
 
     public function roles(): BelongsToMany
     {

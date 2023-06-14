@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\V1\TravelController;
 use App\Http\Controllers\Api\V1\TourController;
 use App\Http\Controllers\Api\V1\Admin;
+use App\Http\Controllers\Api\V1\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,6 @@ Route::prefix('admin')->middleware('auth:sanctum')->group(function () {
     //! create a travel
     Route::post('travels', [Admin\TravelController::class, 'store']);
 });
+
+//! Login
+Route::post('login', LoginController::class);
