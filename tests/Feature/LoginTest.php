@@ -12,7 +12,7 @@ class LoginTest extends TestCase
 
     use RefreshDatabase;
 
-    public function test_login()
+    public function test_login(): void
     {
         $this->withoutExceptionHandling();
 
@@ -27,7 +27,7 @@ class LoginTest extends TestCase
         $response->assertJsonStructure(['access_token']);
     }
 
-    public function test_login_with_wrong_password()
+    public function test_login_with_wrong_password(): void
     {
         $this->withoutExceptionHandling();
 
@@ -41,7 +41,7 @@ class LoginTest extends TestCase
         $response->assertStatus(422);
     }
 
-    public function test_login_with_wrong_email()
+    public function test_login_with_wrong_email(): void
     {
         $this->withoutExceptionHandling();
 
@@ -55,7 +55,7 @@ class LoginTest extends TestCase
         $response->assertStatus(422);
     }
 
-    public function test_login_with_wrong_email_and_password()
+    public function test_login_with_wrong_email_and_password(): void
     {
         $this->withoutExceptionHandling();
 
