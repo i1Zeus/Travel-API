@@ -29,7 +29,7 @@ Route::get('travels', [TravelController::class, 'index']);
 Route::get('travels/{travel:slug}/tours', [TourController::class, 'index']);
 
 //! Admin routes
-Route::prefix('admin')->middleware('auth:sanctum')->group(function () {
+Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(function () {
     //! create a travel
     Route::post('travels', [Admin\TravelController::class, 'store']);
 });
