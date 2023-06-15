@@ -13,14 +13,14 @@ class AdminTravelTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_public_user_can_not_create_a_travel(): void
+    public function test_public_user_cannot_create_a_travel(): void
     {
         $response = $this->postJson('/api/v1/admin/travels');
 
         $response->assertStatus(401);
     }
 
-    public function test_non_admin_users_can_not_access_adding_travels(): void
+    public function test_non_admin_users_cannot_access_adding_travels(): void
     {
         $this->seed(RoleSeeder::class);
         $user = User::factory()->create();
