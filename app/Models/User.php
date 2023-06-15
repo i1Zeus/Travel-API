@@ -47,7 +47,7 @@ class User extends Authenticatable
         'password' => 'string',
     ];
 
-    public function roles()
+    public function roles(): BelongsToMany
     {
         return $this->belongsToMany(Role::class);
     }
