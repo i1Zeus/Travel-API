@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\V1\TravelController;
 use App\Http\Controllers\Api\V1\TourController;
 use App\Http\Controllers\Api\V1\Admin;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
