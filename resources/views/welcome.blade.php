@@ -394,6 +394,13 @@
 </head>
 
 <body>
+  <div class="flex justify-center items-center">
+    <button class="flex justify-center items-center gap-10px relative after:absolute after:bg-red ">
+      <h2>Button</h2>
+      <span class="w-20px h-20px bg-black rounded-full">
+      </span>
+    </button>
+  </div>
   <div class="items-top relative flex min-h-screen justify-center bg-gray-900 py-4 sm:items-center sm:pt-0">
     @if (Route::has('login'))
       <div class="fixed top-0 right-0 hidden px-6 py-4 sm:block">
