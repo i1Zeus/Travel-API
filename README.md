@@ -17,9 +17,9 @@ You'll find That I've installed [UnoCSS](https://unocss.dev), that was too as a 
 
 ## How to install UnoCSS with Laravel
 
-1. you need to install [NodeJS](https://nodejs.org/en/), then you need to install [UnoCSS](https://unocss.dev) with this command `npm install -D unocss`.
+1. install [NodeJS](https://nodejs.org/en/), then install [UnoCSS](https://unocss.dev) with this command `npm install -D unocss`.
 
-2. you need to create a file called `uno.config.js` and put this code inside it.
+2. create a file called `uno.config.js` and put this code inside it.
 
 ```js
 import {
