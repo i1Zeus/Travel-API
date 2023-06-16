@@ -1,4 +1,3 @@
-// uno.config.js
 import {
     defineConfig,
     presetAttributify,
