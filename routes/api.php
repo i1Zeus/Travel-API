@@ -29,13 +29,18 @@ Route::get('travels', [TravelController::class, 'index']);
 Route::get('travels/{travel:slug}/tours', [TourController::class, 'index']);
 
 //* Admin routes
-Route::prefix('admin')->middleware(['auth:sanctum', 'role:admin'])->group(function () {
+Route::prefix('admin')->middleware(['auth:sanctum'])->group(function () {
 
-    //* create a travel
-    Route::post('travels', [Admin\TravelController::class, 'store']);
+    Route::middleware('role:admin')->group(function () {
+        //* create a travel
+        Route::post('travels', [Admin\TravelController::class, 'store']);
 
-    //* create a tour for a travel
-    Route::post('travels/{travel}/tours', [Admin\TourController::class, 'store']);
+        //* create a tour for a travel
+        Route::post('travels/{travel}/tours', [Admin\TourController::class, 'store']);
+    });
+
+    //* update a travel
+    Route::put('travels/{travel}', [Admin\TravelController::class, 'update']);
 });
 
 //* Login
