@@ -40,22 +40,24 @@ class CreateUserCommand extends Command
         $roleName = $this->choice('Role of new user?', ['admin', 'editor'], 1);
 
         $role = Role::where('name', $roleName)->first();
-        if (!$role) {
-            $this->error('Role ' . $roleName . ' does not exist');
+        if (! $role) {
+            $this->error('Role '.$roleName.' does not exist');
+
             return -1;
         }
 
         $validator = Validator::make($user, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'min:6', Password::defaults()],
         ]);
         if ($validator->fails()) {
             foreach ($validator->errors()->all() as $error) {
                 $this->error($error);
             }
+
             return -1;
-        };
+        }
 
         DB::transaction(function () use ($user, $role) {
             $user['password'] = Hash::make($user['password']);
@@ -63,7 +65,7 @@ class CreateUserCommand extends Command
             $newUser->roles()->attach($role->id);
         });
 
-        $this->info('user ' . $user['email'] . ' created successfully');
+        $this->info('user '.$user['email'].' created successfully');
 
         return 0;
     }

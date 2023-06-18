@@ -13,10 +13,10 @@ class TourController extends Controller
     {
         $tours = $travel->tours()
             ->when($request->priceFrom, function ($query) use ($request) {
-                $query->where('price_in_cents', '>=', $request->priceFrom );
+                $query->where('price_in_cents', '>=', $request->priceFrom);
             })
             ->when($request->priceTo, function ($query) use ($request) {
-                $query->where('price_in_cents', '<=', $request->priceTo );
+                $query->where('price_in_cents', '<=', $request->priceTo);
             })
             ->when($request->dateFrom, function ($query) use ($request) {
                 $query->where('starting_date', '>=', $request->dateFrom);
@@ -33,7 +33,7 @@ class TourController extends Controller
         return TourResource::collection($tours);
     }
 
-    /* 
+    /*
     * Notes:
     * ->when($request->sortBy && $request->sortOrder, function ($query) use ($request) {
     ?   checks if the sortBy value is in allowed values.

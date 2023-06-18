@@ -14,5 +14,4 @@ class TravelController extends Controller
 
         return TravelResource::collection($travels);
     }
-
 }
