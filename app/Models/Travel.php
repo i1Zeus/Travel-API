@@ -13,7 +13,8 @@ class Travel extends Model
 {
     use HasFactory, Sluggable, HasUuids;
 
-    protected $table = "travels";
+    protected $table = 'travels';
+
     protected $fillable = [
         'is_public',
         'slug',
@@ -31,12 +32,12 @@ class Travel extends Model
     {
         return [
             'slug' => [
-                'source' => 'name'
-            ]
+                'source' => 'name',
+            ],
         ];
     }
 
-    public function numberOfNight():Attribute
+    public function numberOfNight(): Attribute
     {
         return Attribute::make(
             get: fn ($value, $attribute) => $attribute['number_of_days'] - 1,

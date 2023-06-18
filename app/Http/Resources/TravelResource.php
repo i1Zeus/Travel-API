@@ -15,12 +15,12 @@ class TravelResource extends JsonResource
     public function toArray($request)
     {
         return [
-                'id' => $this->id,
-                'name' => $this->name,
-                'slug' => $this->slug,
-                'description' => $this->description,
-                'number_of_days' => $this->number_of_days,
-                'number_of_night' => $this->number_of_night,
+            'id' => $this->id,
+            'name' => $this->name,
+            'slug' => $this->slug,
+            'description' => $this->description,
+            'number_of_days' => $this->number_of_days,
+            'number_of_night' => $this->number_of_night,
         ];
     }
 }
