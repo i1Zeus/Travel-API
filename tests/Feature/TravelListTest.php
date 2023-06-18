@@ -4,18 +4,15 @@ namespace Tests\Feature;
 
 use App\Models\Travel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class TravelListTest extends TestCase
 {
-
     use RefreshDatabase;
 
     public function test_travels_list_return_paginated_correctly(): void
     {
-
-        Travel::factory(16)->create(['is_public' => true,]);
+        Travel::factory(16)->create(['is_public' => true]);
 
         $response = $this->get('/api/v1/travels');
 
@@ -27,9 +24,8 @@ class TravelListTest extends TestCase
 
     public function test_travels_list_return_only_is_public(): void
     {
-
-        $publicTravel = Travel::factory()->create(['is_public' => true,]);
-        Travel::factory()->create(['is_public' => false,]);
+        $publicTravel = Travel::factory()->create(['is_public' => true]);
+        Travel::factory()->create(['is_public' => false]);
 
         $response = $this->get('/api/v1/travels');
 

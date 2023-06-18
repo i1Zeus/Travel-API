@@ -19,7 +19,7 @@ class TravelController extends Controller
     public function update(Travel $travel, TravelRequest $request)
     {
         $travel->update($request->validated());
-        
+
         return new TravelResource($travel);
     }
 }
