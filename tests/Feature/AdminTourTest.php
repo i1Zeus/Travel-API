@@ -16,7 +16,7 @@ class AdminTourTest extends TestCase
     public function test_public_user_cannot_create_a_travel(): void
     {
         $travel = Travel::factory()->create();
-        $response = $this->postJson('/api/v1/admin/travels/' . $travel->id . '/tours');
+        $response = $this->postJson('/api/v1/admin/travels/'.$travel->id.'/tours');
 
         $response->assertStatus(401);
     }
@@ -27,7 +27,7 @@ class AdminTourTest extends TestCase
         $user = User::factory()->create();
         $user->roles()->attach(Role::where('name', 'editor')->value('id'));
         $travel = Travel::factory()->create();
-        $response = $this->actingAs($user)->postJson('/api/v1/admin/travels/' . $travel->id . '/tours');
+        $response = $this->actingAs($user)->postJson('/api/v1/admin/travels/'.$travel->id.'/tours');
 
         $response->assertStatus(403);
     }
@@ -38,13 +38,13 @@ class AdminTourTest extends TestCase
         $user = User::factory()->create();
         $user->roles()->attach(Role::where('name', 'admin')->value('id'));
         $travel = Travel::factory()->create();
-        $response = $this->actingAs($user)->postJson('/api/v1/admin/travels/' . $travel->id . '/tours', [
+        $response = $this->actingAs($user)->postJson('/api/v1/admin/travels/'.$travel->id.'/tours', [
             'name' => 'Tour name',
         ]);
 
         $response->assertStatus(422);
 
-        $response = $this->actingAs($user)->postJson('/api/v1/admin/travels/' . $travel->id . '/tours', [
+        $response = $this->actingAs($user)->postJson('/api/v1/admin/travels/'.$travel->id.'/tours', [
             'name' => 'Tour name',
             'starting_date' => '2023-06-15',
             'ending_date' => '2023-06-18',
@@ -53,7 +53,7 @@ class AdminTourTest extends TestCase
 
         $response->assertStatus(201);
 
-        $response = $this->get('/api/v1/travels/' . $travel->slug . '/tours');
+        $response = $this->get('/api/v1/travels/'.$travel->slug.'/tours');
         $response->assertJsonFragment(['name' => 'Tour name']);
     }
 }

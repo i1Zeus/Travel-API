@@ -114,43 +114,43 @@ class ToursListTest extends TestCase
 
         $endpoint = "/api/v1/travels/{$travel->slug}/tours?";
 
-        $response = $this->get($endpoint . "priceFrom=100");
+        $response = $this->get($endpoint.'priceFrom=100');
         $response->assertJsonCount(2, 'data');
         $response->assertJsonFragment(['id' => $cheapTour->id]);
         $response->assertJsonFragment(['id' => $expensiveTour->id]);
 
-        $response = $this->get($endpoint . "priceFrom=150");
+        $response = $this->get($endpoint.'priceFrom=150');
         $response->assertJsonCount(1, 'data');
         $response->assertJsonMissing(['id' => $cheapTour->id]);
         $response->assertJsonFragment(['id' => $expensiveTour->id]);
 
-        $response = $this->get($endpoint . "priceFrom=250");
+        $response = $this->get($endpoint.'priceFrom=250');
         $response->assertJsonCount(0, 'data');
 
-        $response = $this->get($endpoint . "priceTo=200");
+        $response = $this->get($endpoint.'priceTo=200');
         $response->assertJsonCount(2, 'data');
         $response->assertJsonFragment(['id' => $cheapTour->id]);
         $response->assertJsonFragment(['id' => $expensiveTour->id]);
 
-        $response = $this->get($endpoint . "priceTo=150");
+        $response = $this->get($endpoint.'priceTo=150');
         $response->assertJsonCount(1, 'data');
         $response->assertJsonFragment(['id' => $cheapTour->id]);
         $response->assertJsonMissing(['id' => $expensiveTour->id]);
 
-        $response = $this->get($endpoint . "priceTo=50");
+        $response = $this->get($endpoint.'priceTo=50');
         $response->assertJsonCount(0, 'data');
 
-        $response = $this->get($endpoint . "priceFrom=100&priceTo=200");
+        $response = $this->get($endpoint.'priceFrom=100&priceTo=200');
         $response->assertJsonCount(2, 'data');
         $response->assertJsonFragment(['id' => $cheapTour->id]);
         $response->assertJsonFragment(['id' => $expensiveTour->id]);
 
-        $response = $this->get($endpoint . "priceFrom=150&priceTo=200");
+        $response = $this->get($endpoint.'priceFrom=150&priceTo=200');
         $response->assertJsonCount(1, 'data');
         $response->assertJsonMissing(['id' => $cheapTour->id]);
         $response->assertJsonFragment(['id' => $expensiveTour->id]);
 
-        $response = $this->get($endpoint . "?priceFrom=100&priceTo=150");
+        $response = $this->get($endpoint.'?priceFrom=100&priceTo=150');
         $response->assertJsonCount(1, 'data');
         $response->assertJsonFragment(['id' => $cheapTour->id]);
         $response->assertJsonMissing(['id' => $expensiveTour->id]);
@@ -172,33 +172,33 @@ class ToursListTest extends TestCase
 
         $endpoint = "/api/v1/travels/{$travel->slug}/tours?";
 
-        $response = $this->get($endpoint . "dateFrom=" . now());
+        $response = $this->get($endpoint.'dateFrom='.now());
         $response->assertJsonCount(2, 'data');
         $response->assertJsonFragment(['id' => $laterTour->id]);
         $response->assertJsonFragment(['id' => $earlierTour->id]);
 
-        $response = $this->get($endpoint . "dateFrom=" . now()->addDay());
+        $response = $this->get($endpoint.'dateFrom='.now()->addDay());
         $response->assertJsonCount(1, 'data');
         $response->assertJsonFragment(['id' => $laterTour->id]);
         $response->assertJsonMissing(['id' => $earlierTour->id]);
 
-        $response = $this->get($endpoint . "dateFrom=" . now()->addDays(5));
+        $response = $this->get($endpoint.'dateFrom='.now()->addDays(5));
         $response->assertJsonCount(0, 'data');
 
-        $response = $this->get($endpoint . "dateTo=" . now()->addDays(5));
+        $response = $this->get($endpoint.'dateTo='.now()->addDays(5));
         $response->assertJsonCount(2, 'data');
         $response->assertJsonFragment(['id' => $laterTour->id]);
         $response->assertJsonFragment(['id' => $earlierTour->id]);
 
-        $response = $this->get($endpoint . "dateTo=" . now()->addDay());
+        $response = $this->get($endpoint.'dateTo='.now()->addDay());
         $response->assertJsonCount(1, 'data');
         $response->assertJsonFragment(['id' => $earlierTour->id]);
         $response->assertJsonMissing(['id' => $laterTour->id]);
 
-        $response = $this->get($endpoint . "dateTo=" . now()->subDay());
+        $response = $this->get($endpoint.'dateTo='.now()->subDay());
         $response->assertJsonCount(0, 'data');
 
-        $response = $this->get($endpoint . "dateFrom=" . now()->addDay() . "&dateTo=" . now()->addDays(5));
+        $response = $this->get($endpoint.'dateFrom='.now()->addDay().'&dateTo='.now()->addDays(5));
         $response->assertJsonCount(1, 'data');
         $response->assertJsonFragment(['id' => $laterTour->id]);
         $response->assertJsonMissing(['id' => $earlierTour->id]);
@@ -210,16 +210,16 @@ class ToursListTest extends TestCase
 
         $endpoint = "/api/v1/travels/{$travel->slug}/tours?";
 
-        $response = $this->getJson($endpoint . "priceFrom=abcde");
+        $response = $this->getJson($endpoint.'priceFrom=abcde');
         $response->assertStatus(422);
 
-        $response = $this->getJson($endpoint . "dateFrom=abcde");
+        $response = $this->getJson($endpoint.'dateFrom=abcde');
         $response->assertStatus(422);
 
-        $response = $this->getJson($endpoint . "sortBy=abcd");
+        $response = $this->getJson($endpoint.'sortBy=abcd');
         $response->assertStatus(422);
 
-        $response = $this->getJson($endpoint . "sortBy=price&sortOrder=abcd");
+        $response = $this->getJson($endpoint.'sortBy=price&sortOrder=abcd');
         $response->assertStatus(422);
     }
 }

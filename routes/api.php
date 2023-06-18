@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\V1\TravelController;
-use App\Http\Controllers\Api\V1\TourController;
 use App\Http\Controllers\Api\V1\Admin;
 use App\Http\Controllers\Api\V1\Auth\LoginController;
+use App\Http\Controllers\Api\V1\TourController;
+use App\Http\Controllers\Api\V1\TravelController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +30,6 @@ Route::get('travels/{travel:slug}/tours', [TourController::class, 'index']);
 
 //* Admin routes
 Route::prefix('admin')->middleware(['auth:sanctum'])->group(function () {
-
     Route::middleware('role:admin')->group(function () {
         //* create a travel
         Route::post('travels', [Admin\TravelController::class, 'store']);
