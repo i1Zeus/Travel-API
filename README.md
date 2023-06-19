@@ -9,11 +9,13 @@
 
 ## About this project
 
-I've just started working api in laravel and this is my first project. I've used laravel 8 and php 7.4. used mysql database. used postman for testing api. used laravel dusk for testing. used laravel ui for authentication. used laravel sanctum for authentication.
+I've just started working api in Laravel and this is my first project. I've used Laravel 8 and php 7.4. used mysql database. used postman for testing api. used Laravel dusk for testing. used Laravel ui for authentication. used Laravel sanctum for authentication.
 
 ## More about this project
 
-You'll find That I've installed [UnoCSS](https://unocss.dev), that was too as a test there is only a little of ppl that have installed it with Laravel.
+* You'll find That I've installed [UnoCSS](https://unocss.dev), that was too as a test there is only a little of ppl that have installed it with Laravel.
+* Used Laravel pint for styling and formatting the code.
+* Used Larastan for static analysis.
 
 ## How to install UnoCSS with Laravel
 
