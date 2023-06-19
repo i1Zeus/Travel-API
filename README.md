@@ -16,6 +16,7 @@ I've just started working api in Laravel and this is my first project. I've used
 * You'll find That I've installed [UnoCSS](https://unocss.dev), that was too as a test there is only a little of ppl that have installed it with Laravel.
 * Used Laravel pint for styling and formatting the code.
 * Used Larastan for static analysis.
+* Used Scribe to document the api.
 
 ## How to install UnoCSS with Laravel
 
