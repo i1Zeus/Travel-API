@@ -9,6 +9,9 @@ use App\Models\Travel;
 
 class TourController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index(Travel $travel, ToursListRequest $request)
     {
         $tours = $travel->tours()
