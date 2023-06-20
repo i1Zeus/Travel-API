@@ -9,6 +9,11 @@ use App\Models\Travel;
 
 class TravelController extends Controller
 {
+    /**
+     * @group Admin Controls
+     *
+     * Create a new Travel.
+     */
     public function store(TravelRequest $request)
     {
         $travel = Travel::create($request->validated());

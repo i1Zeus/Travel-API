@@ -9,11 +9,16 @@ use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
+    /**
+     * @group Auth
+     * 
+     * Login a user.
+     */
     public function __invoke(LoginRequest $request)
     {
         $user = User::where('email', $request->email)->first();
 
-        if (! $user || ! Hash::check($request->password, $user->password)) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             return response()->json([
                 'error' => 'The provided credentials are incorrect.',
             ], 422);
