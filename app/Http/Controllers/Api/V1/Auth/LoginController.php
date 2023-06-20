@@ -12,7 +12,7 @@ class LoginController extends Controller
     /**
      * @group Auth
      * 
-     * Login a user.
+     * User Login.
      */
     public function __invoke(LoginRequest $request)
     {
