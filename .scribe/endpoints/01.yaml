@@ -1,0 +1,135 @@
+name: 'Admin Controls'
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/admin/travels
+    metadata:
+      groupName: 'Admin Controls'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new Travel.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      is_public:
+        name: is_public
+        description: ''
+        required: false
+        example: false
+        type: boolean
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: id
+        type: string
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: true
+        example: non
+        type: string
+        custom: []
+      number_of_days:
+        name: number_of_days
+        description: ''
+        required: true
+        example: 8
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      is_public: false
+      name: id
+      description: non
+      number_of_days: 8
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/v1/admin/travels/{travel_id}/tours'
+    metadata:
+      groupName: 'Admin Controls'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new tours for a Travel by Travel ID.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      travel_id:
+        name: travel_id
+        description: 'The ID of the travel.'
+        required: true
+        example: 996b10c9-31d8-492f-9c57-fd2a57fd1c8d
+        type: string
+        custom: []
+    cleanUrlParameters:
+      travel_id: 996b10c9-31d8-492f-9c57-fd2a57fd1c8d
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Must not be greater than 100 characters.'
+        required: true
+        example: hpymwb
+        type: string
+        custom: []
+      starting_date:
+        name: starting_date
+        description: 'Must be a valid date.'
+        required: true
+        example: '2023-06-19T22:21:28'
+        type: string
+        custom: []
+      ending_date:
+        name: ending_date
+        description: 'Must be a valid date. Must be a date after <code>starting_date</code>.'
+        required: true
+        example: '2045-05-02'
+        type: string
+        custom: []
+      price_in_cents:
+        name: price_in_cents
+        description: 'Must be at least 0.'
+        required: true
+        example: 64
+        type: number
+        custom: []
+    cleanBodyParameters:
+      name: hpymwb
+      starting_date: '2023-06-19T22:21:28'
+      ending_date: '2045-05-02'
+      price_in_cents: 64
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
