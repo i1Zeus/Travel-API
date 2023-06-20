@@ -8,6 +8,9 @@ use App\Models\Travel;
 
 class TravelController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         $travels = Travel::where('is_public', true)->paginate();
