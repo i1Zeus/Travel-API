@@ -9,6 +9,11 @@ use App\Models\Travel;
 
 class TourController extends Controller
 {
+    /**
+     * @group Admin Controls
+     *
+     * Create a new tours for a Travel by Travel ID.
+     */
     public function store(Travel $travel, TourRequest $request): TourResource
     {
         $tour = $travel->tours()->create($request->validated());
